@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/IP-PROJECT-B14/static/css/main.a206c749.css",
+    "main.js": "/IP-PROJECT-B14/static/js/main.cc11cf11.js",
+    "index.html": "/IP-PROJECT-B14/index.html",
+    "main.a206c749.css.map": "/IP-PROJECT-B14/static/css/main.a206c749.css.map",
+    "main.cc11cf11.js.map": "/IP-PROJECT-B14/static/js/main.cc11cf11.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a206c749.css",
+    "static/js/main.cc11cf11.js"
+  ]
+}
