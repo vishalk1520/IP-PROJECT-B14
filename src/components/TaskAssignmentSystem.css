@@ -1,0 +1,423 @@
+.task-system-container {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background-color: #00ddff;
+    transition: all 0.3s ease;
+  }
+  
+  .task-system-container.secret-mode {
+    background-color: blue;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+  }
+  
+  .header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f3f4f6;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center; 
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: black;
+    transition: color 0.3s ease;
+    width: 100%; 
+    text-align: center; 
+  }
+  
+  .secret-mode .title {
+    color: #7c3aed;
+    text-shadow: 0 0 8px rgba(124, 58, 237, 0.2);
+  }
+  
+  .secret-badge {
+    margin-left: 0.5rem;
+    color: #7c3aed;
+    font-weight: 600;
+    animation: sparkle 2s infinite;
+  }
+  
+  .form-container {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #fff685;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease;
+  }
+  
+  .form-container:hover {
+    transform: translateY(-3px);
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input,
+  .form-select {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  
+  .form-input:focus,
+  .form-select:focus {
+    outline: none;
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+  
+  .secret-mode .form-input:focus,
+  .secret-mode .form-select:focus {
+    border-color: #c4b5fd;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  }
+  
+  .submit-button {
+    margin-top: 1rem;
+    padding: 0.625rem 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    min-width: 120px; 
+  }
+  
+  .submit-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+  }
+  
+  .submit-button:active {
+    transform: translateY(0);
+  }
+  
+  .secret-mode .submit-button {
+    background-color: #8b5cf6;
+  }
+  
+  .secret-mode .submit-button:hover {
+    background-color: #7c3aed;
+  }
+  
+  .filter-container {
+    margin-bottom: 1rem;
+  }
+  
+  .filter-select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .task-table {
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+  }
+  
+  .task-table th {
+    background-color: #f3f4f6;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: black;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  
+  .task-table th:first-child {
+    border-top-left-radius: 8px;
+  }
+  
+  .task-table th:last-child {
+    border-top-right-radius: 8px;
+  }
+  
+  .task-table tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+  }
+  
+  .task-table tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+  }
+  
+  .task-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease;
+  }
+  
+  .task-table tr:hover td {
+    background-color: #f9fafb;
+  }
+  
+  .task-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .status-select {
+    padding: 0.375rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    background-color: white;
+  }
+  
+  .priority-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .priority-high {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .priority-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .priority-low {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .delete-button {
+    padding: 0.375rem 0.75rem;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: #dc2626;
+  }
+  
+  .secret-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    backdrop-filter: blur(4px);
+  }
+  
+  .secret-modal {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 28rem;
+    width: 100%;
+    animation: modalFade 0.3s ease-out;
+  }
+  
+  .secret-modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #7c3aed;
+  }
+  
+  .secret-modal-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #c4b5fd;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .secret-modal-input:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  }
+  
+  .modal-button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .cancel-button {
+    padding: 0.5rem 1rem;
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .cancel-button:hover {
+    background-color: #d1d5db;
+  }
+  
+  .submit-modal-button {
+    padding: 0.5rem 1rem;
+    background-color: #8b5cf6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .submit-modal-button:hover {
+    background-color: #7c3aed;
+  }
+  
+  .hint-text {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .tips-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    border-left: 4px solid #60a5fa;
+  }
+  
+  .tips-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+  
+  .tips-text {
+    color: #4b5563;
+  }
+  
+  .konami-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    pointer-events: none;
+  }
+  
+  .konami-content {
+    text-align: center;
+    animation: bounce 1s infinite;
+    z-index: 10;
+  }
+  
+  .konami-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fcd34d;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(252, 211, 77, 0.5);
+  }
+  
+  .konami-subtitle {
+    font-size: 1.5rem;
+    color: blue;
+  }
+  
+  .konami-emoji {
+    margin-top: 1.5rem;
+    font-size: 5rem;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+  
+  @keyframes modalFade {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
